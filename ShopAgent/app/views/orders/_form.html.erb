@@ -1,0 +1,63 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label 'ご注文者様のご氏名(必須)' %>
+    <%= form.text_field :name, id: :order_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'お届け先住所(必須)' %>
+    <%= form.text_area :address, id: :order_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'ご注文者様のお電話番号(必須)' %>
+    <%= form.text_field :tellNo, id: :order_tellNo %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'ご注文者様のメールアドレス' %>
+    <%= form.text_field :email, id: :order_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'ご注文の商品名(必須)' %>
+    <%= form.text_field :productName, id: :order_productName %>
+  </div>
+
+  <div class="field">
+    <%= form.label '注文品のご説明' %>
+    <%= form.text_area :productDescription, id: :order_productDescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label '画像ファイル' %>
+    <%= form.text_field :image_url, id: :order_image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label '販売先のご住所' %>
+    <%= form.text_area :shopAddress, id: :order_shopAddress %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'お支払い方法(必須)' %>
+    <%= form.select :pay_type, Order::PAYMENT_TYPES,
+      prompt: 'お支払い方法を選択してください' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
