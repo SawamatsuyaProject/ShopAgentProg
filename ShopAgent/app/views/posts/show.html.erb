@@ -1,0 +1,12 @@
+<h2>
+	<%= @post.title %>
+</h2>
+
+<p>
+	<%= simple_format(@post.body) %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+
+<%= link_to '一覧へ', posts_path %>
