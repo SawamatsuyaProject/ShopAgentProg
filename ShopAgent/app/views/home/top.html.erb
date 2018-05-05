@@ -1,3 +1,5 @@
 <h1>Home#top</h1>
+<%= link_to "ご利用サンプル", use_sample_top_path %>
 <%= button_to "注文する", new_order_path, method: :get %>
-<p>Find me in app/views/home/top.html.erb</p>
+<h2>最新記事</h2>
+<%= render 'posts/index'%>

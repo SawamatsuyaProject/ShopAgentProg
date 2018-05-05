@@ -1,0 +1,2 @@
+module UseSampleHelper
+end
